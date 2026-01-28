@@ -3,48 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NanoLifts | India's First Zero-Civil Home Lift</title>
+    <title>NanoLifts | Stop Climbing, Start Gliding</title>
     <style>
         :root {
-            --primary: #2c3e50;
-            --accent: #27ae60;
-            --light: #f4f7f6;
+            --primary: #1a2e35; /* Deep Teal */
+            --accent: #27ae60;  /* Forest Green */
+            --light: #f9fbfb;
             --text: #333;
+            --white: #ffffff;
         }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; color: var(--text); line-height: 1.6; }
+
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background-color: var(--light); color: var(--text); line-height: 1.6; }
         
         /* Navigation */
-        nav { background: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .logo { font-weight: bold; font-size: 1.5rem; color: var(--primary); }
-        .btn { background: var(--accent); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        nav { background: var(--white); padding: 1.2rem 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: 800; font-size: 1.6rem; color: var(--primary); letter-spacing: -1px; }
+        .nav-links { font-size: 0.9rem; color: #666; }
+        .btn-small { background: var(--accent); color: white; padding: 10px 22px; text-decoration: none; border-radius: 25px; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
+        .btn-small:hover { background: #1e8449; }
 
         /* Hero Section */
-        header { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1350&q=80'); 
-                 height: 80vh; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
-        .hero-content h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        .hero-content p { font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        header { background: linear-gradient(135deg, rgba(26,46,53,0.9) 0%, rgba(26,46,53,0.7) 100%), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80'); 
+                 min-height: 70vh; background-size: cover; background-position: center; display: flex; align-items: center; padding: 0 8%; color: white; }
+        .hero-content { max-width: 600px; }
+        .hero-content h1 { font-size: 3.8rem; line-height: 1.1; margin-bottom: 20px; font-weight: 800; }
+        .hero-content p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 35px; }
+        .btn-large { background: var(--accent); color: white; padding: 18px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1rem; }
 
-        /* Features Section */
-        .section { padding: 60px 10%; text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
-        .feature-card { padding: 20px; border: 1px solid #eee; border-radius: 10px; transition: 0.3s; }
-        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        /* Feature Grid */
+        .features-section { padding: 80px 8%; margin-top: -80px; }
+        .white-card { background: var(--white); border-radius: 20px; padding: 50px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+        .features-header { text-align: center; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; color: #999; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .feature-item { text-align: center; padding: 20px; }
+        .feature-item h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--primary); }
+        .feature-item p { font-size: 0.85rem; color: #777; line-height: 1.5; }
 
-        /* Calculator Styling */
-        .calc-container { background: var(--light); padding: 40px 10%; display: flex; flex-wrap: wrap; align-items: center; gap: 50px; }
-        .calc-box { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); flex: 1; min-width: 300px; }
-        input { width: 100%; padding: 12px; margin: 15px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; box-sizing: border-box; }
-        
-        /* About Founder */
-        .founder-section { background: white; padding: 60px 10%; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
-        .founder-img { flex: 1; min-width: 300px; border-radius: 15px; overflow: hidden; }
-        .founder-img img { width: 100%; display: block; filter: grayscale(20%); }
-        .founder-text { flex: 2; min-width: 300px; }
+        /* Calculator & Content Section */
+        .calc-row { display: flex; flex-wrap: wrap; gap: 60px; margin-top: 60px; align-items: center; }
+        .calc-box { flex: 1; min-width: 300px; border: 2px solid #eef2f2; border-radius: 15px; padding: 30px; text-align: center; }
+        .calc-box input { width: 80%; padding: 12px; margin: 15px 0; border: 1px solid #ddd; border-radius: 5px; text-align: center; font-size: 1.1rem; }
+        .result-text { font-size: 2.2rem; font-weight: 800; color: var(--accent); margin: 10px 0; }
+        .calc-content { flex: 1.2; }
+        .calc-content h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
 
-        footer { background: var(--primary); color: white; padding: 40px 10%; text-align: center; }
-        
+        /* Founder Story */
+        .founder-row { display: flex; flex-wrap: wrap; gap: 50px; margin-top: 80px; align-items: center; }
+        .founder-image { flex: 1; min-width: 300px; }
+        .founder-image img { width: 100%; border-radius: 10px; grayscale: 100%; }
+        .founder-text { flex: 1.5; }
+        .founder-text h2 { color: var(--primary); }
+        .founder-text blockquote { font-style: italic; color: #555; border-left: 3px solid var(--accent); padding-left: 20px; margin-left: 0; margin-bottom: 20px;}
+
+        /* Footer Section */
+        footer { background: #1a2e35; color: white; padding: 60px 8%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 50px; }
+        .footer-left h3 { margin: 0 0 10px 0; font-size: 1.5rem; }
+        .footer-left p { margin: 0; font-size: 1rem; opacity: 0.9; }
+        .footer-right { text-align: right; }
+
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.2rem; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .calc-row, .founder-row { flex-direction: column; }
+            .footer-right { text-align: left; margin-top: 20px; }
         }
     </style>
 </head>
@@ -52,79 +72,84 @@
 
 <nav>
     <div class="logo">NanoLifts</div>
-    <a href="#contact" class="btn">Get Started</a>
+    <div class="nav-links">India's first Home-Grown Zero-Civil Home Lift</div>
+    <a href="#contact" class="btn-small">Get Started</a>
 </nav>
 
 <header>
     <div class="hero-content">
-        <h1>Stop Climbing. Start Gliding.</h1>
+        <h1>Stop Climbing. <br>Start Gliding.</h1>
         <p>India’s first Zero-Civil, Gravity-Assisted home lift. Installed in 24 hours. Fits in 1m² space.</p>
-        <a href="#calculator" class="btn">Calculate My ROI</a>
+        <a href="#calculator" class="btn-large">Calculate My ROI</a>
     </div>
 </header>
 
-<div class="section">
-    <h2>Why Choose NanoLifts?</h2>
-    <div class="grid">
-        <div class="feature-card">
-            <h3>Zero Civil Work</h3>
-            <p>No pit, no shaft, no breaking beams. We install on your existing floor.</p>
+<section class="features-section">
+    <div class="white-card">
+        <div class="features-header">Features</div>
+        <div class="grid">
+            <div class="feature-item">
+                <h3>Zero Civil Work</h3>
+                <p>No pit, no shaft, no breaking beams. We install on your existing floor.</p>
+            </div>
+            <div class="feature-item">
+                <h3>15A Plug & Play</h3>
+                <p>Runs on a standard power socket. Uses less power than a microwave.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Dry-Glide™ Tech</h3>
+                <p>Self-lubricating graphite bushes. No oil leaks, no mess, no smell.</p>
+            </div>
+            <div class="feature-item">
+                <h3>NanoCare AI</h3>
+                <p>24/7 remote monitoring. Predictive maintenance for 100% uptime.</p>
+            </div>
         </div>
-        <div class="feature-card">
-            <h3>15A Plug & Play</h3>
-            <p>Runs on a standard power socket. Uses less power than a microwave.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Dry-Glide™ Tech</h3>
-            <p>Self-lubricating graphite bushes. No oil leaks, no mess, no smell.</p>
-        </div>
-        <div class="feature-card">
-            <h3>NanoCare AI</h3>
-            <p>24/7 remote monitoring. We fix it before you even notice a vibration.</p>
-        </div>
-    </div>
-</div>
 
-<div class="calc-container" id="calculator">
-    <div class="calc-box">
-        <h3>Nano-Savings Calculator</h3>
-        <label>Current Home Value (₹)</label>
-        <input type="number" id="homeValue" value="10000000" oninput="calculate()">
-        <p>Estimated Property Boost: <br><strong id="gainResult" style="color:var(--accent); font-size: 2rem;">₹10,00,000</strong></p>
-        <p style="font-size: 0.9rem; color: #666;">*Based on average 10% appreciation for lift-enabled homes.</p>
-    </div>
-    <div class="calc-text">
-        <h2>Your lift pays for itself.</h2>
-        <p>Beyond convenience, a NanoLift is a financial asset. Most Indian bungalows see a 10-12% jump in resale value once vertical mobility is added.</p>
-    </div>
-</div>
+        <div class="calc-row" id="calculator">
+            <div class="calc-box">
+                <h4 style="margin:0; color:#666; font-size: 0.9rem;">Nano-Savings Calculator</h4>
+                <p style="font-size: 0.8rem; color:#999;">Current Home Value (₹)</p>
+                <input type="number" id="homeVal" value="10000000" oninput="updateCalc()">
+                <div class="result-text" id="result">₹10,00,000</div>
+                <p style="font-size: 0.8rem; color:#999;">Estimated Property Boost</p>
+                <button onclick="updateCalc()" style="background:var(--primary); color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">Update Estimate</button>
+            </div>
+            <div class="calc-content">
+                <h2>Your lift pays for itself.</h2>
+                <p>Beyond convenience, a NanoLift is a financial asset. Most Indian bungalows see a 10-12% jump in resale value once vertical mobility is added.</p>
+            </div>
+        </div>
 
-<div class="founder-section">
-    <div class="founder-img">
-        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=600&q=80" alt="Founder in Workshop">
+        <div class="founder-row">
+            <div class="founder-image">
+                <img src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=800&q=80" alt="Founder Working">
+            </div>
+            <div class="founder-text">
+                <h2>About Founder Story</h2>
+                <p>Watching the elderly in my own family struggle with stairs was the catalyst. I realized the barrier wasn't technology—it was cost and the mess of construction.</p>
+                <blockquote>"We stripped away the complexity and left only the engineering. A lift should be as simple as an appliance, not a construction project."</blockquote>
+                <p><strong>- Nikhileswar K., Founder & Lead Engineer</strong></p>
+            </div>
+        </div>
     </div>
-    <div class="founder-text">
-        <h2>From the Founder</h2>
-        <p>I watched my parents struggle with stairs, and I realized that "Home" shouldn't have barriers. I used my engineering background to strip away the costs of traditional elevators.</p>
-        <p>By using <strong>Frugal Engineering</strong> and <strong>Smart Materials</strong>, I built NanoLifts for the Indian middle class. Safe, affordable, and elegant.</p>
-        <strong>- Your Name, Founder & Lead Engineer</strong>
-    </div>
-</div>
+</section>
 
 <footer id="contact">
-    <h2>Join the Founder's Club</h2>
-    <p>Only 5 slots left for this month's installation cycle.</p>
-    <p>Contact: +91 XXXXX XXXXX | info@nanolifts.in</p>
-    <div style="margin-top: 20px;">
-        <p>&copy; 2024 NanoLifts India. All Rights Reserved.</p>
+    <div class="footer-left">
+        <h3>Join the Founder's Club</h3>
+        <p>Contact: +91 91234 56789 | info@nanolifts.in</p>
+    </div>
+    <div class="footer-right">
+        <p>© 2026 NanoLifts India. All Rights Reserved.</p>
     </div>
 </footer>
 
 <script>
-    function calculate() {
-        const val = document.getElementById('homeValue').value;
+    function updateCalc() {
+        const val = document.getElementById('homeVal').value;
         const gain = val * 0.10;
-        document.getElementById('gainResult').innerText = "₹" + gain.toLocaleString('en-IN');
+        document.getElementById('result').innerText = "₹" + gain.toLocaleString('en-IN');
     }
 </script>
 
