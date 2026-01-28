@@ -4,66 +4,168 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NanoLifts | Stop Climbing, Start Gliding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root {
-            --primary: #1a2e35; /* Deep Teal */
-            --accent: #27ae60;  /* Forest Green */
-            --light: #f9fbfb;
-            --text: #333;
+            --deep-navy: #1a2e35;
+            --forest-green: #27ae60;
+            --light-bg: #f4f7f8;
             --white: #ffffff;
+            --text-gray: #666;
         }
 
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background-color: var(--light); color: var(--text); }
-        
-        /* Navigation */
-        nav { background: var(--white); padding: 1.2rem 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .logo { font-weight: 800; font-size: 1.6rem; color: var(--primary); letter-spacing: -1px; }
-        .nav-links { font-size: 0.9rem; color: #666; }
-        .btn-small { background: var(--accent); color: white; padding: 10px 22px; text-decoration: none; border-radius: 25px; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
-        .btn-small:hover { background: #1e8449; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            background-color: var(--light-bg); 
+            color: #333;
+        }
 
-        /* Hero Section */
-        header { background: linear-gradient(135deg, rgba(26,46,53,0.9) 0%, rgba(26,46,53,0.7) 100%), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80'); 
-                 min-height: 70vh; background-size: cover; background-position: center; display: flex; align-items: center; padding: 0 8%; color: white; }
-        .hero-content { max-width: 600px; }
-        .hero-content h1 { font-size: 3.8rem; line-height: 1.1; margin-bottom: 20px; font-weight: 800; }
-        .hero-content p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 35px; }
-        .btn-large { background: var(--accent); color: white; padding: 18px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1rem; }
+        /* Nav */
+        nav { 
+            background: var(--white); 
+            padding: 1rem 8%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .logo { font-weight: 800; font-size: 1.5rem; color: var(--deep-navy); }
+        .nav-tagline { font-size: 0.8rem; color: var(--text-gray); font-weight: 400; }
+        .btn-nav { 
+            background: var(--forest-green); 
+            color: white; 
+            padding: 8px 20px; 
+            border-radius: 20px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 0.8rem; 
+        }
 
-        /* Feature Grid */
-        .features-section { padding: 80px 8%; margin-top: -80px; }
-        .white-card { background: var(--white); border-radius: 20px; padding: 50px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
-        .features-header { text-align: center; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; color: #999; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .feature-item { text-align: center; padding: 20px; }
-        .feature-item h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--primary); }
-        .feature-item p { font-size: 0.85rem; color: #777; line-height: 1.5; }
+        /* Hero */
+        header { 
+            background: var(--deep-navy); 
+            color: white; 
+            padding: 60px 8% 120px 8%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        .hero-text { max-width: 450px; }
+        .hero-text h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 20px; }
+        .hero-text p { opacity: 0.8; margin-bottom: 30px; line-height: 1.6; }
+        .btn-hero { 
+            background: var(--forest-green); 
+            color: white; 
+            padding: 12px 25px; 
+            border-radius: 25px; 
+            text-decoration: none; 
+            font-weight: bold; 
+        }
+        .hero-img { 
+            width: 400px; 
+            height: 300px; 
+            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80') center/cover;
+            border: 8px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
 
-        /* Calculator & Content Section */
-        .calc-row { display: flex; flex-wrap: wrap; gap: 60px; margin-top: 60px; align-items: center; }
-        .calc-box { flex: 1; min-width: 300px; border: 2px solid #eef2f2; border-radius: 15px; padding: 30px; text-align: center; }
-        .calc-box input { width: 80%; padding: 12px; margin: 15px 0; border: 1px solid #ddd; border-radius: 5px; text-align: center; font-size: 1.1rem; }
-        .result-text { font-size: 2.2rem; font-weight: 800; color: var(--accent); margin: 10px 0; }
-        .calc-content { flex: 1.2; }
-        .calc-content h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        /* Features Overlap Card */
+        .main-container { 
+            max-width: 1000px; 
+            margin: -80px auto 50px auto; 
+            background: var(--white); 
+            border-radius: 20px; 
+            padding: 40px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
 
-        /* Founder Story */
-        .founder-row { display: flex; flex-wrap: wrap; gap: 50px; margin-top: 80px; align-items: center; }
-        .founder-image { flex: 1; min-width: 300px; }
-        .founder-image img { width: 100%; border-radius: 10px; grayscale: 100%; }
-        .founder-text { flex: 1.5; }
-        .founder-text h2 { color: var(--primary); }
-        .founder-text blockquote { font-style: italic; color: #555; border-left: 3px solid var(--accent); padding-left: 20px; margin-left: 0; }
+        .section-title { 
+            text-align: center; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            font-size: 0.9rem; 
+            color: #999; 
+            margin-bottom: 40px; 
+        }
+
+        .features-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; 
+            margin-bottom: 60px;
+        }
+        .feature-card { 
+            text-align: left; 
+            padding: 20px; 
+            background: #f9f9f9; 
+            border-radius: 10px; 
+        }
+        .feature-card i { color: var(--forest-green); font-size: 1.5rem; margin-bottom: 15px; }
+        .feature-card h3 { font-size: 0.95rem; margin: 0 0 10px 0; color: var(--deep-navy); }
+        .feature-card p { font-size: 0.75rem; color: var(--text-gray); line-height: 1.4; margin: 0; }
+
+        /* Calculator Section */
+        .calculator-box { 
+            display: flex; 
+            gap: 40px; 
+            align-items: center; 
+            padding: 40px 0; 
+            border-top: 1px solid #eee;
+        }
+        .calc-card { 
+            flex: 1; 
+            border: 2px solid var(--forest-green); 
+            border-radius: 15px; 
+            padding: 30px; 
+            text-align: center; 
+        }
+        .calc-card input { 
+            width: 80%; 
+            padding: 10px; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            font-size: 1.2rem; 
+            font-weight: bold; 
+            margin: 15px 0; 
+            text-align: center;
+        }
+        .roi-text { font-size: 2rem; font-weight: 800; color: var(--forest-green); }
+        .btn-calc { background: #607d8b; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+
+        .calc-text { flex: 1; }
+        .calc-text h2 { font-size: 2.2rem; line-height: 1.2; color: var(--deep-navy); }
+
+        /* Founder Section */
+        .founder-box { display: flex; gap: 40px; margin-top: 60px; align-items: flex-start; }
+        .founder-img-small { 
+            width: 250px; 
+            height: 180px; 
+            background: url('https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=400&q=80') center/cover;
+            border-radius: 10px;
+            filter: grayscale(100%);
+        }
+        .founder-content { flex: 1; }
+        .founder-content h4 { margin: 0 0 10px 0; color: var(--deep-navy); }
+        .founder-content p { font-size: 0.85rem; color: var(--text-gray); line-height: 1.6; }
 
         /* Footer */
-        footer { background: var(--primary); color: white; padding: 60px 8%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        .footer-left h3 { margin: 0; font-size: 1.5rem; }
-        .footer-right { text-align: right; }
+        footer { 
+            background: var(--deep-navy); 
+            color: white; 
+            padding: 40px 8%; 
+            display: flex; 
+            justify-content: space-between; 
+            font-size: 0.85rem; 
+        }
+        .footer-info span { opacity: 0.7; margin-right: 20px; }
 
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            .calc-row, .founder-row { flex-direction: column; }
-            .footer-right { text-align: left; margin-top: 20px; }
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            header, .calculator-box, .founder-box { flex-direction: column; text-align: center; }
+            .hero-img { width: 100%; height: 200px; margin-top: 30px; }
         }
     </style>
 </head>
@@ -71,84 +173,86 @@
 
 <nav>
     <div class="logo">NanoLifts</div>
-    <div class="nav-links">India's first Home-Grown Zero-Civil Home Lift</div>
-    <a href="#contact" class="btn-small">Get Started</a>
+    <div class="nav-tagline">India's first Home-Grown Zero-Civil Home Lift</div>
+    <a href="#" class="btn-nav">Get Started</a>
 </nav>
 
 <header>
-    <div class="hero-content">
-        <h1>Stop Climbing. <br>Start Gliding.</h1>
-        <p>India’s first Zero-Civil, Gravity-Assisted home lift. Installed in 24 hours. Fits in 1m² space.</p>
-        <a href="#calculator" class="btn-large">Calculate My ROI</a>
+    <div class="hero-text">
+        <h1>Stop Climbing.<br>Start Gliding.</h1>
+        <p>India's first Zero-Civil, Gravity-Assisted home lift. Installed in 24 hours. Fits in 1m² space.</p>
+        <a href="#calculator" class="btn-hero">Calculate My ROI</a>
     </div>
+    <div class="hero-img"></div>
 </header>
 
-<section class="features-section">
-    <div class="white-card">
-        <div class="features-header">Features</div>
-        <div class="grid">
-            <div class="feature-item">
-                <h3>Zero Civil Work</h3>
-                <p>No pit, no shaft, no breaking beams. We install on your existing floor.</p>
-            </div>
-            <div class="feature-item">
-                <h3>15A Plug & Play</h3>
-                <p>Runs on a standard power socket. Uses less power than a microwave.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Dry-Glide™ Tech</h3>
-                <p>Self-lubricating graphite bushes. No oil leaks, no mess, no smell.</p>
-            </div>
-            <div class="feature-item">
-                <h3>NanoCare AI</h3>
-                <p>24/7 remote monitoring. Predictive maintenance for 100% uptime.</p>
-            </div>
+<div class="main-container">
+    <div class="section-title">Features</div>
+    
+    <div class="features-grid">
+        <div class="feature-card">
+            <i class="fas fa-tools"></i>
+            <h3>Zero Civil Work</h3>
+            <p>No pit, no shaft, no breaking beams. Fits on existing floors.</p>
         </div>
-
-        <div class="calc-row" id="calculator">
-            <div class="calc-box">
-                <h4 style="margin:0; color:#666; font-size: 0.9rem;">Nano-Savings Calculator</h4>
-                <p style="font-size: 0.8rem; color:#999;">Current Home Value (₹)</p>
-                <input type="number" id="homeVal" value="10000000" oninput="updateCalc()">
-                <div class="result-text" id="result">₹10,00,000</div>
-                <p style="font-size: 0.8rem; color:#999;">Estimated Property Boost</p>
-                <button onclick="updateCalc()" style="background:var(--primary); color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">Update Estimate</button>
-            </div>
-            <div class="calc-content">
-                <h2>Your lift pays for itself.</h2>
-                <p>Beyond convenience, a NanoLift is a financial asset. Most Indian bungalows see a 10-12% jump in resale value once vertical mobility is added.</p>
-            </div>
+        <div class="feature-card">
+            <i class="fas fa-plug"></i>
+            <h3>15A Plug & Play</h3>
+            <p>Runs on a standard power socket. Extremely energy efficient.</p>
         </div>
-
-        <div class="founder-row">
-            <div class="founder-image">
-                <img src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=800&q=80" alt="Founder Working">
-            </div>
-            <div class="founder-text">
-                <h2>About Founder Story</h2>
-                <p>Watching the elderly in my own family struggle with stairs was the catalyst. I realized the barrier wasn't technology—it was cost and the mess of construction.</p>
-                <blockquote>"We stripped away the complexity and left only the engineering. A lift should be as simple as an appliance, not a construction project."</blockquote>
-                <p><strong>- Nikhileswar K., Founder & Lead Engineer</strong></p>
-            </div>
+        <div class="feature-card">
+            <i class="fas fa-tint-slash"></i>
+            <h3>Dry-Glide™ Tech</h3>
+            <p>Self-lubricating system. No oil leaks or messy maintenance.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-satellite-dish"></i>
+            <h3>NanoCare AI</h3>
+            <p>24/7 remote monitoring for predictive maintenance.</p>
         </div>
     </div>
-</section>
 
-<footer id="contact">
-    <div class="footer-left">
-        <h3>Join the Founder's Club</h3>
-        <p>Contact: +91 XXXXX XXXXX | info@nanolifts.in</p>
+    <div class="calculator-box" id="calculator">
+        <div class="calc-card">
+            <div style="font-size: 0.7rem; color: #999; margin-bottom: 5px;">Nano-Savings Calculator</div>
+            <div style="font-size: 0.6rem; color: #ccc;">Current Home Value (₹)</div>
+            <input type="number" id="homeVal" value="10000000" oninput="updateROI()">
+            <div class="roi-text" id="roiDisp">₹10,00,000</div>
+            <div style="font-size: 0.6rem; color: #ccc; margin-bottom: 15px;">Estimated Property Boost</div>
+            <button class="btn-calc" onclick="updateROI()">Update Estimate</button>
+        </div>
+        <div class="calc-text">
+            <h2>Your lift pays<br>for itself.</h2>
+            <p style="color: var(--text-gray); font-size: 0.9rem;">Beyond convenience, a NanoLift adds tangible value to your property. Most homes see a 10% increase in resale value.</p>
+        </div>
     </div>
-    <div class="footer-right">
-        <p>© 2024 NanoLifts India. All Rights Reserved.</p>
+
+    <div class="founder-box">
+        <div class="founder-img-small"></div>
+        <div class="founder-content">
+            <h4>About Founder Story</h4>
+            <p>Watching the elderly struggle with stairs inspired the mission. We stripped away construction mess to create an appliance-like lift experience.</p>
+            <p style="font-style: italic; color: #333; margin-top: 15px;">- Nikhileswar K., Founder & Lead Engineer</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-info">
+        <strong style="display:block; margin-bottom:10px;">Join the Founder's Club</strong>
+        <span>+91 YOUR_PHONE</span> 
+        <span>info@nanolifts.in</span>
+    </div>
+    <div>
+        <p>© 2026 NanoLifts India. All Rights Reserved.</p>
     </div>
 </footer>
 
 <script>
-    function updateCalc() {
+    function updateROI() {
         const val = document.getElementById('homeVal').value;
         const gain = val * 0.10;
-        document.getElementById('result').innerText = "₹" + gain.toLocaleString('en-IN');
+        document.getElementById('roiDisp').innerText = "₹" + gain.toLocaleString('en-IN');
     }
 </script>
 
